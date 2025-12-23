@@ -11,7 +11,7 @@ export function ComponentUsingUse({time = 300}: {time: number}) {
   return (
     <ViewTransition>
     <div className="h-[50vh]">
-      <div className="text-2xl font-bold">Stream Component {time} ms</div>
+      <div className="text-2xl font-bold">Streamed Component {time} ms</div>
     </div>
     </ViewTransition>
   );

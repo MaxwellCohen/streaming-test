@@ -11,7 +11,7 @@ export async function ComponentUsingAsync({time = 300}: {time: number}) {
   return (
     <ViewTransition>
     <div className="h-[50vh]">
-      <div className="text-2xl font-bold">Stream Component {time} ms</div>
+      <div className="text-2xl font-bold">Server Loaded Component {time} ms</div>
     </div>
     </ViewTransition>
   );
