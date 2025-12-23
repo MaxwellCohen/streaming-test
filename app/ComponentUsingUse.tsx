@@ -5,13 +5,13 @@ const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export const fiveSecondsWait = wait(300);
 
 
-export function StreamComponent({time = 300}: {time: number}) {
+export function ComponentUsingUse({time = 300}: {time: number}) {
     use(wait(time));
     console.log("waiting");
   return (
     <ViewTransition>
-    <div>
-      <div className="text-2xl font-bold">Stream Component {time}</div>
+    <div className="h-[50vh]">
+      <div className="text-2xl font-bold">Stream Component {time} ms</div>
     </div>
     </ViewTransition>
   );
