@@ -22,28 +22,40 @@ export default async function Home({
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <ComponentUsingAsync time={20} />
         <ComponentUsingAsync time={350} />
-        <Suspense fallback={<div className="h-[50vh]"> </div>}>
+        <Suspense fallback={<LoadingFallback time={500} />}>
           <ComponentUsingUse time={500} />
         </Suspense>
-        <Suspense fallback={<div className="h-[50vh]"> </div>}>
+        <Suspense fallback={<LoadingFallback time={1000} />}>
           <ComponentUsingUse time={1000} />
         </Suspense>
-        <Suspense fallback={<div className="h-[50vh]"> </div>}>
+        <Suspense fallback={<LoadingFallback time={2000} />}>
           <ComponentUsingUse time={2000} />
         </Suspense>
-        <Suspense fallback={<div className="h-[50vh]" > </div>}>
+        <Suspense fallback={<LoadingFallback time={3000} />}>
           <ComponentUsingUse time={3000} />
         </Suspense>
-        <Suspense fallback={<div className="h-[50vh]" > </div>}>
+        <Suspense fallback={<LoadingFallback time={4000} />}>
           <ComponentUsingUse time={4000} />
         </Suspense>
-        <Suspense fallback={<div className="h-[50vh]" > </div>}>
+        <Suspense fallback={<LoadingFallback time={5000} />}>
           <ComponentUsingUse time={5000} />
         </Suspense>
-        <Suspense fallback={<div className="h-[50vh]" > </div>}>
+        <Suspense fallback={<LoadingFallback time={6000} />}>
+          <ComponentUsingUse time={6000} />
+        </Suspense>
+        <Suspense fallback={<LoadingFallback time={300} />}>
           <ComponentUsingUse time={300} />
         </Suspense>
       </main>
+    </div>
+  );
+}
+
+
+function LoadingFallback({time}: {time: number}) {
+  return (
+    <div className="h-[50vh]">
+      <div className="text-2xl font-bold">Loading Component that will take {time} ms</div>
     </div>
   );
 }
