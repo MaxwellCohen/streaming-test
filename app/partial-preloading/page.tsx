@@ -1,8 +1,14 @@
 import { Suspense } from "react";
 import { ComponentUsingUse } from "../ComponentUsingUse";
 import { ComponentUsingAsync } from "../ComponentUsingAsync";
+import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Partial Preloading",
+  description: "Some of this page is preloaded, while other parts are loaded on-demand.",
+};
 
 export default async function Home({
   searchParams,
@@ -10,9 +16,9 @@ export default async function Home({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const params = await searchParams;
-  console.log(params);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black" data-params={JSON.stringify(params)}>
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <ComponentUsingAsync time={20} />
         <ComponentUsingAsync time={350} />
