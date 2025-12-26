@@ -40,9 +40,6 @@ export default async function Home({
         <Suspense fallback={<LoadingFallback time={5000} />}>
           <ComponentUsingUse time={5000} />
         </Suspense>
-        <Suspense fallback={<LoadingFallback time={6000} />}>
-          <ComponentUsingUse time={6000} />
-        </Suspense>
         <Suspense fallback={<LoadingFallback time={300} />}>
           <ComponentUsingUse time={300} />
         </Suspense>
