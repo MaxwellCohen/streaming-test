@@ -7,8 +7,16 @@ export default async function Home({searchParams}: {searchParams: Promise<{ [key
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <div>
           <h1 className="text-4xl font-bold">Streaming Test</h1>
-         <a className="block underline text-blue-400" href="/partial-preloading">Partial SSR Preloading with streaming will provide first response as soon as possible, and then stream the rest of the page</a>
-         <a className="block underline text-blue-400" href="/full-preloading">Full SSR will load all of the page before rendering</a>
+          <div>
+
+          <a className="block underline text-blue-400" href="/partial-preloading">Partial SSR Preloading with streaming.</a>
+          will provide first response as soon as possible, and then stream the rest of the page
+          </div>
+          <div>
+
+          <a className="block underline text-blue-400" href="/full-preloading">Full SSR will </a>
+          load all of the page before rendering
+          </div>
         </div>
       </main>
     </div>
