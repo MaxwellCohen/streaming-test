@@ -25,9 +25,12 @@ export default async function Home({
             Partial Preloading of page last updated {new Date().toLocaleString()}
           </h1>
         </div>
-        
-        <ComponentUsingAsync time={20} />
-        <ComponentUsingAsync time={350} />
+        <Suspense fallback={<LoadingFallback time={20} />}>
+          <ComponentUsingAsync time={20} />
+        </Suspense>
+        <Suspense fallback={<LoadingFallback time={350} />}>
+          <ComponentUsingAsync time={350} />
+        </Suspense>
         <Suspense fallback={<LoadingFallback time={500} />}>
           <ComponentUsingUse time={500} />
         </Suspense>

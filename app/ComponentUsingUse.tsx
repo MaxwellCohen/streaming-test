@@ -11,12 +11,11 @@ export function ComponentUsingUse({ time = 300 }: { time: number }) {
   }
   return (
     <div className="h-[50vh]">
-      <div className="text-2xl font-bold">
-        Streamed Component that took {time} ms
-      </div>
-
       <div className="text-lg font-medium">
         {jokes[time] || "No joke found"}
+      </div>
+      <div className="text-sm  font-bold">
+        Streamed Component that took {time} ms
       </div>
     </div>
   );

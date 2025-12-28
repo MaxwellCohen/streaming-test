@@ -1,12 +1,14 @@
 import { ComponentUsingAsync } from "../ComponentUsingAsync";
 import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Full Preloading",
-  description: "All of this page is preloaded on sever side before rendering",
+  title: "SSG",
+  description: "SSG Loading of page",
 };
+
+export const revalidate = 10;
 
 export default async function Home({searchParams}: {searchParams: Promise<{ [key: string]: string | string[] | undefined }>;}) {
   const params = await searchParams;
@@ -16,7 +18,7 @@ export default async function Home({searchParams}: {searchParams: Promise<{ [key
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <div>
           <h1>
-            Partial Preloading of page last updated {new Date().toLocaleString()}
+            SSG Loading of page last updated {new Date().toLocaleString()}
           </h1>
         </div>
         <ComponentUsingAsync time={20} />
