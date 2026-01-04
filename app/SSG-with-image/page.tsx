@@ -28,7 +28,7 @@ export default async function Home({searchParams}: {searchParams: Promise<{ [key
               alt="image"
               width={600}
               height={400}
-              priority
+              priority fetchPriority="high"
               className="p-4 pt-8 rounded-md m-auto"
             />
         </div>
