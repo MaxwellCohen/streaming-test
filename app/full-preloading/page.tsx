@@ -19,7 +19,8 @@ export default async function Home({searchParams}: {searchParams: Promise<{ [key
         <div>
           <h1>
             Full Preloading of page on server last updated {new Date().toLocaleString()}
-          </h1>
+          </h1>x
+
         </div>
         <ComponentUsingAsync time={20} />
         <ComponentUsingAsync time={350} />

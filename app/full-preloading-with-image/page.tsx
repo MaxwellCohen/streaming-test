@@ -34,7 +34,7 @@ export default async function Home({
               alt="image"
               width={600}
               height={400}
-              priority fetchPriority="high"
+              priority fetchPriority="high" loading="eager"
               className="p-4 pt-8 rounded-md m-auto"
             />
           </div>
