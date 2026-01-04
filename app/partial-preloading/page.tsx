@@ -27,12 +27,12 @@ export default async function Home({
         </div>
         
         <ComponentUsingAsync time={20} />
-        <ComponentUsingAsync time={350} />
+        <ComponentUsingUse   time={350} />
         <Suspense fallback={<LoadingFallback time={500} />}>
           <ComponentUsingUse time={500} />
         </Suspense>
         <Suspense fallback={<LoadingFallback time={1000} />}>
-          <ComponentUsingUse time={1000} />
+          <ComponentUsingAsync time={1000} />
         </Suspense>
         <Suspense fallback={<LoadingFallback time={2000} />}>
           <ComponentUsingUse time={2000} />

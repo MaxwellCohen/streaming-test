@@ -1,3 +1,4 @@
+"use client"
 import { use } from "react";
 import { jokes } from "./jokes";
 
@@ -14,7 +15,7 @@ export function ComponentUsingUse({ time = 300 }: { time: number }) {
       <div className="text-lg font-medium">
         {jokes[time] || "No joke found"}
       </div>
-      <div className="text-sm  font-bold">
+      <div className="text-sm">
         Streamed Component that took {time} ms
       </div>
     </div>

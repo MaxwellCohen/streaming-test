@@ -39,6 +39,12 @@ export default async function Home() {
               </a>
               will load all of the page during build
             </li>
+            <li>
+              <a className="block underline text-blue-400" href="/toplevel-preloading">
+                Top Level Preloading of page
+              </a>
+              will load all of the page before rendering
+            </li>
           </ul>
         </div>
       </main>

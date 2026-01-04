@@ -3,15 +3,15 @@ import { jokes } from "./jokes";
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export const fiveSecondsWait = wait(300);
 
-export async function ComponentUsingAsync({ time = 300 }: { time: number }) {
-  await wait(time);
+export async function SyncComponent({ time = 300 }: { time: number }) {
+  
   return (
     <div className="h-[50vh]">
       <div className="text-lg font-medium">
         {jokes[time] || "No joke found"}
       </div>
       <div className="text-sm">
-        Async component that took {time} ms
+        Sync component that took {time} ms
       </div>
     </div>
   );
