@@ -1,4 +1,10 @@
 import RootLayout from "./_layout";
+
+export const metadata = {
+  title: "Streaming Test Scenarios",
+  description: "Demonstrates different streaming test scenarios for Next.js",
+};
+
 export default async function Home() {
   return (
     <RootLayout>
