@@ -10,28 +10,28 @@ const IFRAMES = [
     whereWaits: "Page: the async page component awaits the promise before rendering.",
   },
   {
+    src: "/comparison/iframe-content",
+    label: "2) Dynamic content",
+    title: "Dynamic content",
+    whereWaits: "Component: the async component awaits the promise; the page does not await.",
+  },
+  {
     src: "/comparison/iframe-async-suspense",
-    label: "2) Async function + Suspense",
+    label: "3) Async function + Suspense",
     title: "Async + Suspense",
-    whereWaits: "Component: the async page component awaits the promise before rendering.",
+    whereWaits: "Page: the async page component awaits the promise before rendering (inside Suspense).",
   },
   {
     src: "/comparison/iframe-use",
-    label: "3) use()",
+    label: "4) use()",
     title: "use()",
-    whereWaits: "Page: the promise is created in the page and passed to a component that calls use(promise) inside the component. Since no Suspense is used, the page will wait for the promise to resolve before rendering the component.",
+    whereWaits: "Component: the page creates the promise and passes it to a component that calls use(promise); no Suspense.",
   },
   {
     src: "/comparison/iframe-use-suspense",
-    label: "4) use() + Suspense",
+    label: "5) use() + Suspense",
     title: "use() + Suspense",
-    whereWaits: "Component: the promise is created in the page and passed to a component that calls use(promise) inside Suspense.",
-  },
-  {
-    src: "/comparison/iframe-content",
-    label: "5) Dynamic content",
-    title: "Dynamic content",
-    whereWaits: "Page: the async page component awaits the promise before rendering.",
+    whereWaits: "Component: the page creates the promise and passes it to a component that calls use(promise) inside Suspense.",
   },
 ] as const;
 
@@ -62,7 +62,7 @@ export function ComparisonClient() {
       </div>
 
       {showIframes && (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {IFRAMES.map(({ src, label, title, whereWaits }) => (
             <div
               key={src}

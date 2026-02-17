@@ -1,14 +1,12 @@
 import RootLayout from "../../_layout";
 import { ComponentUsingAsync } from "../../ComponentUsingAsync";
-import { wait } from "../../wait";
-import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
 
 const DYNAMIC_DELAY_MS = 3000;
 
 export default async function IframeContentPage() {
-  await wait(DYNAMIC_DELAY_MS);
+  
   return (
     <RootLayout>
       <div className="min-h-screen bg-black p-6 font-sans">
@@ -18,15 +16,9 @@ export default async function IframeContentPage() {
             <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-white">
               Dynamic content (loads in {DYNAMIC_DELAY_MS / 1000}s)
             </h2>
-            <Suspense
-              fallback={
-                <div className="flex h-24 items-center justify-center rounded bg-amber-900/50 text-amber-200">
-                  Loading dynamic content…
-                </div>
-              }
-            >
-              <ComponentUsingAsync time={DYNAMIC_DELAY_MS} preResolved />
-            </Suspense>
+        
+              <ComponentUsingAsync time={DYNAMIC_DELAY_MS} />
+        
           </section>
 
           {/* Static content: visible immediately */}
