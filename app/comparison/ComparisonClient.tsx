@@ -3,10 +3,36 @@
 import { useState } from "react";
 
 const IFRAMES = [
-  { src: "/comparison/iframe-async", label: "1) Async function", title: "Async" },
-  { src: "/comparison/iframe-async-suspense", label: "2) Async function + Suspense", title: "Async + Suspense" },
-  { src: "/comparison/iframe-use", label: "3) use()", title: "use()" },
-  { src: "/comparison/iframe-use-suspense", label: "4) use() + Suspense", title: "use() + Suspense" },
+  {
+    src: "/comparison/iframe-async",
+    label: "1) Async function",
+    title: "Async",
+    whereWaits: "Page: the async page component awaits the promise before rendering.",
+  },
+  {
+    src: "/comparison/iframe-async-suspense",
+    label: "2) Async function + Suspense",
+    title: "Async + Suspense",
+    whereWaits: "Component: the async page component awaits the promise before rendering.",
+  },
+  {
+    src: "/comparison/iframe-use",
+    label: "3) use()",
+    title: "use()",
+    whereWaits: "Page: the promise is created in the page and passed to a component that calls use(promise) inside the component. Since no Suspense is used, the page will wait for the promise to resolve before rendering the component.",
+  },
+  {
+    src: "/comparison/iframe-use-suspense",
+    label: "4) use() + Suspense",
+    title: "use() + Suspense",
+    whereWaits: "Component: the promise is created in the page and passed to a component that calls use(promise) inside Suspense.",
+  },
+  {
+    src: "/comparison/iframe-content",
+    label: "5) Dynamic content",
+    title: "Dynamic content",
+    whereWaits: "Page: the async page component awaits the promise before rendering.",
+  },
 ] as const;
 
 export function ComparisonClient() {
@@ -17,6 +43,12 @@ export function ComparisonClient() {
       <p className="text-white">
         Click the button below to reveal all iframes. Each iframe loads a page
         with dynamic content (3s delay) and static content underneath.
+      </p>
+      <p className="text-sm text-zinc-400">
+        <strong>Where the promise is waited on:</strong> Async-style pages create
+        the promise and <strong>await</strong> it in the page component before
+        rendering. use()-style pages create the promise in the page and pass it
+        to a component that calls <strong>use(promise)</strong> to resolve it.
       </p>
 
       <div className="flex flex-wrap gap-4">
@@ -31,13 +63,16 @@ export function ComparisonClient() {
 
       {showIframes && (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {IFRAMES.map(({ src, label, title }) => (
+          {IFRAMES.map(({ src, label, title, whereWaits }) => (
             <div
               key={src}
               className="overflow-hidden rounded-lg border border-zinc-600 bg-zinc-800 shadow"
             >
-              <div className="border-b border-zinc-600 bg-zinc-700 px-3 py-2 text-sm font-medium text-white">
-                {label}
+              <div className="border-b border-zinc-600 bg-zinc-700 px-3 py-2">
+                <div className="text-sm font-medium text-white">{label}</div>
+                <p className="mt-1 text-xs text-zinc-300">
+                  Waits in: {whereWaits}
+                </p>
               </div>
               <iframe
                 src={src}
